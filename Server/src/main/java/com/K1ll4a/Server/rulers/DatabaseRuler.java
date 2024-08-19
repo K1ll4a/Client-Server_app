@@ -71,7 +71,7 @@ public class DatabaseRuler {
                 OrganizationType organizationType = OrganizationType.valueOf(resultSet.getString("organizationType"));
                 int userId = resultSet.getInt("user_id");
                 String login = resultSet.getString("login");
-                result.add(new Mclass(id, name, new Coordinates(x, y), creationDate, price, manufactureCost, unitOfMeasure, new Organization(OrgId, org_name, org_fullname, organizationType), userId, login));
+                result.add(new Mclass(name, new Coordinates(x, y), creationDate, price, manufactureCost, unitOfMeasure, new Organization(OrgId, org_name, org_fullname, organizationType), userId, login));
 
 
             }
@@ -103,7 +103,7 @@ public class DatabaseRuler {
             int userId = resultSet.getInt("user_id");
             String login = resultSet.getString("login");
 
-            return new Mclass(id, name, new Coordinates(x, y), creationDate, price, manufactureCost, unitOfMeasure, new Organization(OrgId, org_name, org_fullname, organizationType), userId, login);
+            return new Mclass(name, new Coordinates(x, y), creationDate, price, manufactureCost, unitOfMeasure, new Organization(OrgId, org_name, org_fullname, organizationType), userId, login);
         }
         return null;
     }

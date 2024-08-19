@@ -61,6 +61,21 @@ public class Mclass implements Comparable<Mclass>,Serializable, Validatable {
     }
 
     @JsonCreator
+    public Mclass(@JsonProperty("name") String name, @JsonProperty("coordinates") Coordinates coordinates,@JsonProperty("creationDate") String creationDate, @JsonProperty("price") Double price,@JsonProperty("manufactureCost") float manufactureCost, @JsonProperty("unitOfMeasure") UnitOfMeasure unitOfMeasure, @JsonProperty("manufacturer") Organization manufacturer,@JsonProperty("user_id") int user_id,@JsonProperty("login") String login) {
+        this.id = UUID.randomUUID().getMostSignificantBits() & Long.MAX_VALUE;
+        this.creationDate = LocalDateTime.parse(creationDate , DateTimeFormatter.ISO_DATE_TIME);
+        this.name = name;
+        this.coordinates = coordinates;
+        this.price = price;
+        this.manufactureCost = manufactureCost;
+        this.unitOfMeasure = unitOfMeasure;
+        this.manufacturer = manufacturer;
+        this.user_id = user_id;
+        this.login = login;
+
+    }
+
+    @JsonCreator
     public Mclass(@JsonProperty("name") String name, @JsonProperty("price") Double price, @JsonProperty("coordinates") Coordinates coordinates, @JsonProperty("manufactureCost") Float manufactureCost, @JsonProperty("unitOfMeasure") UnitOfMeasure unitOfMeasure, @JsonProperty("manufacturer") Organization manufacturer, @JsonProperty("user_id") int user_id, @JsonProperty("login") String login) {
         this.name = name;
         this.price = price;
